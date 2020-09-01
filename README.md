@@ -11,6 +11,11 @@ To get started developing right away:
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
+## Grading
+
+* [Rubric](https://review.udacity.com/#!/rubrics/918/view)
+* [Style guides](https://udacity.github.io/git-styleguide/)
+
 ## What You're Getting
 ```bash
 ├── CONTRIBUTING.md
