@@ -19,9 +19,10 @@ function ListBooks(props) {
         <div>
           {shelves.map((shelf, i) => (
             <Bookshelf
-              name={shelf.name}
               books={props.books.filter((b) => b.shelf === shelf.category)}
+              changeShelf={props.changeShelf}
               key={i}
+              name={shelf.name}
             />
           ))}
         </div>
@@ -37,6 +38,7 @@ function ListBooks(props) {
 
 ListBooks.propTypes = {
   books: PropTypes.array.isRequired,
+  changeShelf: PropTypes.func.isRequired,
 };
 
 export default ListBooks;

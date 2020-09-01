@@ -10,8 +10,18 @@ class BooksApp extends React.Component {
     books: [],
   };
 
-  componentDidMount() {
+  changeShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf)
+      .then((response) => console.log("update resp", response))
+      .then(() => this.refreshShelf());
+  };
+
+  refreshShelf = () => {
     BooksAPI.getAll().then((results) => this.setState({ books: results }));
+  };
+
+  componentDidMount() {
+    this.refreshShelf();
   }
 
   render() {
@@ -21,7 +31,13 @@ class BooksApp extends React.Component {
       <BrowserRouter>
         <div className="app">
           <Route path="/search" component={SearchBooks} />
-          <Route path="/" exact render={() => (<ListBooks books={books} />)} />
+          <Route
+            path="/"
+            exact
+            render={() => (
+              <ListBooks books={books} changeShelf={this.changeShelf} />
+            )}
+          />
         </div>
       </BrowserRouter>
     );
