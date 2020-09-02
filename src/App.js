@@ -30,7 +30,12 @@ class BooksApp extends React.Component {
     return (
       <BrowserRouter>
         <div className="app">
-          <Route path="/search" component={SearchBooks} />
+          <Route
+            path="/search"
+            render={() => (
+              <SearchBooks changeShelf={this.changeShelf} />
+            )}
+          />
           <Route
             path="/"
             exact
