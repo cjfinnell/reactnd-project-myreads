@@ -10,7 +10,11 @@ function Bookshelf(props) {
         <ol className="books-grid">
           {props.books.map((b) => (
             <li key={b.id}>
-              <Book changeShelf={props.changeShelf} meta={b} />
+              <Book
+                changeShelf={props.changeShelf}
+                getCurrentShelf={props.getCurrentShelf}
+                meta={b}
+              />
             </li>
           ))}
         </ol>
@@ -22,6 +26,7 @@ function Bookshelf(props) {
 Bookshelf.propTypes = {
   books: PropTypes.array.isRequired,
   changeShelf: PropTypes.func.isRequired,
+  getCurrentShelf: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
 };
 

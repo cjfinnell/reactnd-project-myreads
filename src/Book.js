@@ -2,6 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import BookShelfChanger from "./BookShelfChanger";
 
+export function objectIsBook(meta) {
+  return (
+    meta.id &&
+    meta.title &&
+    meta.authors &&
+    meta.imageLinks &&
+    meta.imageLinks.thumbnail
+  );
+}
+
 function Book(props) {
   return (
     <div className="book">
@@ -16,6 +26,7 @@ function Book(props) {
         />
         <BookShelfChanger
           changeShelf={(shelf) => props.changeShelf(props.meta, shelf)}
+          currentShelf={props.getCurrentShelf(props.meta.id)}
         />
       </div>
       <div className="book-title">{props.meta.title}</div>
@@ -26,6 +37,7 @@ function Book(props) {
 
 Book.propTypes = {
   changeShelf: PropTypes.func.isRequired,
+  getCurrentShelf: PropTypes.func.isRequired,
   meta: PropTypes.object.isRequired,
 };
 
