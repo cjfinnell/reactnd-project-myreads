@@ -20,7 +20,7 @@ function SearchBooksResults(props) {
                   }
                 </li>
               ))
-          : "no results"}
+          : ""}
       </ol>
     </div>
   );

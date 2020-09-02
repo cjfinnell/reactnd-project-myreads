@@ -11,9 +11,7 @@ class BooksApp extends React.Component {
   };
 
   changeShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf)
-      .then((response) => console.log("update resp", response))
-      .then(() => this.refreshShelf());
+    BooksAPI.update(book, shelf).then(() => this.refreshShelf());
   };
 
   getCurrentShelf = (bookID) => {

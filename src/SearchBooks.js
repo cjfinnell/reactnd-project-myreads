@@ -15,7 +15,6 @@ class SearchBooks extends Component {
   };
 
   runQuery = (query) => {
-    console.log("query:", query);
     BooksAPI.search(query).then((results) => this.updateSearchResults(results));
   };
 
@@ -25,7 +24,6 @@ class SearchBooks extends Component {
 
   render() {
     const { searchResults } = this.state;
-    console.log("search results render", searchResults);
 
     return (
       <div className="search-books">
