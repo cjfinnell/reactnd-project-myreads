@@ -7,6 +7,7 @@ import SearchBooksResults from "./SearchBooksResults";
 class SearchBooks extends Component {
   static propTypes = {
     changeShelf: PropTypes.func.isRequired,
+    getCurrentShelf: PropTypes.func.isRequired,
   };
 
   state = {
@@ -32,6 +33,7 @@ class SearchBooks extends Component {
         <SearchBooksResults
           books={Array.isArray(searchResults) ? searchResults : []}
           changeShelf={this.props.changeShelf}
+          getCurrentShelf={this.props.getCurrentShelf}
         />
       </div>
     );

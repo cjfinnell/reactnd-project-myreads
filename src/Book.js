@@ -26,7 +26,7 @@ function Book(props) {
         />
         <BookShelfChanger
           changeShelf={(shelf) => props.changeShelf(props.meta, shelf)}
-          currentShelf={"move"}
+          currentShelf={props.getCurrentShelf(props.meta.id)}
         />
       </div>
       <div className="book-title">{props.meta.title}</div>
@@ -37,6 +37,7 @@ function Book(props) {
 
 Book.propTypes = {
   changeShelf: PropTypes.func.isRequired,
+  getCurrentShelf: PropTypes.func.isRequired,
   meta: PropTypes.object.isRequired,
 };
 

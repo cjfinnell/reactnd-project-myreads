@@ -21,6 +21,7 @@ function ListBooks(props) {
             <Bookshelf
               books={props.books.filter((b) => b.shelf === shelf.category)}
               changeShelf={props.changeShelf}
+              getCurrentShelf={props.getCurrentShelf}
               key={i}
               name={shelf.name}
             />
@@ -39,6 +40,7 @@ function ListBooks(props) {
 ListBooks.propTypes = {
   books: PropTypes.array.isRequired,
   changeShelf: PropTypes.func.isRequired,
+  getCurrentShelf: PropTypes.func.isRequired,
 };
 
 export default ListBooks;

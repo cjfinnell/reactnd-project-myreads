@@ -7,11 +7,19 @@ function SearchBooksResults(props) {
     <div className="search-books-results">
       <ol className="books-grid">
         {props.books && props.books.length
-          ? props.books.filter((b) => objectIsBook(b)).map((b) => (
-              <li key={b.id}>
-                {<Book changeShelf={props.changeShelf} meta={b} />}
-              </li>
-            ))
+          ? props.books
+              .filter((b) => objectIsBook(b))
+              .map((b) => (
+                <li key={b.id}>
+                  {
+                    <Book
+                      changeShelf={props.changeShelf}
+                      getCurrentShelf={props.getCurrentShelf}
+                      meta={b}
+                    />
+                  }
+                </li>
+              ))
           : "no results"}
       </ol>
     </div>
@@ -21,6 +29,7 @@ function SearchBooksResults(props) {
 SearchBooksResults.propTypes = {
   books: PropTypes.array.isRequired,
   changeShelf: PropTypes.func.isRequired,
+  getCurrentShelf: PropTypes.func.isRequired,
 };
 
 export default SearchBooksResults;
